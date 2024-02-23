@@ -1,0 +1,20 @@
+spring:
+  data:
+    rest:
+#      base-path: /api/v1
+      default-page-size: 25
+      max-page-size: 100
+      sort-param-name: id
+      default-media-type: application/json
+      return-body-on-create: true
+      return-body-on-update: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    show-sql: true
+  main:
+    allow-circular-references: true

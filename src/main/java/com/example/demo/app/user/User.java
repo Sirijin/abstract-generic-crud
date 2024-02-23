@@ -1,6 +1,6 @@
 package com.example.demo.app.user;
 
-import com.example.demo.abstract_crud.IdentifiableEntity;
+import com.example.demo.abstract_crud.marker.IdentifiableEntity;
 import com.example.demo.app.car.Car;
 import jakarta.persistence.*;
 import lombok.Data;

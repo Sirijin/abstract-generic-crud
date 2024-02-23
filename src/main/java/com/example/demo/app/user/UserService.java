@@ -1,6 +1,6 @@
 package com.example.demo.app.user;
 
-import com.example.demo.abstract_crud.AbstractCrudService;
+import com.example.demo.abstract_crud.service.AbstractCrudService;
 import org.springframework.stereotype.Service;
 
 @Service

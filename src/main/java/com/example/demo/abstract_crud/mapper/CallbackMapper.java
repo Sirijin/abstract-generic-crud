@@ -1,4 +1,4 @@
-package com.example.demo.abstract_crud;
+package com.example.demo.abstract_crud.mapper;
 
 import org.springframework.lang.NonNull;
 
@@ -11,7 +11,7 @@ public class CallbackMapper<S, T> implements BiFunction<S, T, T> {
     private final BiFunction<S, T, T> mapper;
     private final BiConsumer<S, T> callback;
 
-    CallbackMapper(@NonNull final BiFunction<S, T, T> mapper, @NonNull final BiConsumer<S, T> callback) {
+    public CallbackMapper(@NonNull final BiFunction<S, T, T> mapper, @NonNull final BiConsumer<S, T> callback) {
         this.mapper = Objects.requireNonNull(mapper, "Parameter 'mapper' must not be null!");
         this.callback = Objects.requireNonNull(callback, "Parameter 'callback' must not be null!");
     }

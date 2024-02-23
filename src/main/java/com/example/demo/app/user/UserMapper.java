@@ -1,6 +1,6 @@
 package com.example.demo.app.user;
 
-import com.example.demo.abstract_crud.CrudMapper;
+import com.example.demo.abstract_crud.mapper.CrudMapper;
 import com.example.demo.app.car.CarMapper;
 import com.example.demo.app.car.CarRepository;
 import org.mapstruct.Mapper;

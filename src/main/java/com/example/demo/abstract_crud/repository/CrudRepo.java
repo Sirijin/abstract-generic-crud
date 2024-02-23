@@ -1,5 +1,6 @@
-package com.example.demo.abstract_crud;
+package com.example.demo.abstract_crud.repository;
 
+import com.example.demo.abstract_crud.marker.IdentifiableEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;

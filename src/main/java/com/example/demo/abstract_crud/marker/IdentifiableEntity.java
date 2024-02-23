@@ -1,4 +1,4 @@
-package com.example.demo.abstract_crud;
+package com.example.demo.abstract_crud.marker;
 
 import java.io.Serializable;
 

@@ -1,5 +1,6 @@
-package com.example.demo.abstract_crud;
+package com.example.demo.abstract_crud.other;
 
+import com.example.demo.abstract_crud.marker.IdentifiableEntity;
 import lombok.Getter;
 
 import java.io.Serializable;

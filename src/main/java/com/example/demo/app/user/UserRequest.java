@@ -1,6 +1,6 @@
 package com.example.demo.app.user;
 
-import com.example.demo.abstract_crud.CrudRequest;
+import com.example.demo.abstract_crud.marker.CrudRequest;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

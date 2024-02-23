@@ -1,5 +1,8 @@
-package com.example.demo.abstract_crud;
+package com.example.demo.abstract_crud.mapper;
 
+import com.example.demo.abstract_crud.marker.CrudRequest;
+import com.example.demo.abstract_crud.marker.CrudResponse;
+import com.example.demo.abstract_crud.marker.IdentifiableEntity;
 import org.mapstruct.MapperConfig;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;

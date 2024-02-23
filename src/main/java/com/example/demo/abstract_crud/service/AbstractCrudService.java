@@ -1,5 +1,12 @@
-package com.example.demo.abstract_crud;
+package com.example.demo.abstract_crud.service;
 
+import com.example.demo.abstract_crud.other.EntityEvent;
+import com.example.demo.abstract_crud.mapper.CallbackMapper;
+import com.example.demo.abstract_crud.mapper.CrudMapper;
+import com.example.demo.abstract_crud.marker.CrudRequest;
+import com.example.demo.abstract_crud.marker.CrudResponse;
+import com.example.demo.abstract_crud.marker.IdentifiableEntity;
+import com.example.demo.abstract_crud.repository.CrudRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
@@ -13,7 +20,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.example.demo.abstract_crud.CrudUtils.copyNonNullProperties;
+import static com.example.demo.abstract_crud.other.CrudUtils.copyNonNullProperties;
 
 public abstract class AbstractCrudService<
         E extends IdentifiableEntity<ID>,

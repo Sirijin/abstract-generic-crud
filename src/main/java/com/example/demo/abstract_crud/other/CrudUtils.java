@@ -1,4 +1,4 @@
-package com.example.demo.abstract_crud;
+package com.example.demo.abstract_crud.other;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.FatalBeanException;

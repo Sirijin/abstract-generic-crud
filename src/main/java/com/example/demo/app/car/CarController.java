@@ -1,6 +1,6 @@
 package com.example.demo.app.car;
 
-import com.example.demo.abstract_crud.AbstractCrudController;
+import com.example.demo.abstract_crud.controller.AbstractCrudController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

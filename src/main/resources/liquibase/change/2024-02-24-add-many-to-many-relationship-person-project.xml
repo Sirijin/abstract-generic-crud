@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.26.xsd">
+
+    <changeSet id="2024-02-24-create-table-project.xml-1" author="mokrovitskii">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="person_project"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="person_project">
+            <column name="person_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="project_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="person_id, project_id" tableName="person_project"/>
+
+        <addForeignKeyConstraint baseColumnNames="person_id"
+                                 baseTableName="person_project"
+                                 constraintName="fk_person_project_person_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="person"/>
+
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="person_project"
+                                 constraintName="fk_person_project_project_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
+
+        <createIndex indexName="idx_person_project_person" tableName="person_project">
+            <column name="person_id"/>
+        </createIndex>
+
+        <createIndex indexName="idx_person_project_project" tableName="person_project">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

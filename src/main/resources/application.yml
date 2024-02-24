@@ -9,3 +9,5 @@ spring:
     show-sql: true
   main:
     allow-circular-references: true
+  liquibase:
+    change-log: classpath*:liquibase/changelog-master.xml

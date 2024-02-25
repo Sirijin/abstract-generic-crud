@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/person")
+@Tag(name = "Person", description = "Operations with descriptions provided specifically for this controller")
 public class PersonController extends AbstractController<Person, PersonDto, PersonService, PersonMapper> {
 
     public PersonController(PersonService service, PersonMapper mapper) {

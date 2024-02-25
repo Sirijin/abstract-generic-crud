@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/project")
+@Tag(name = "Project", description = "Operations with descriptions inherited from the abstract controller")
 public class ProjectController extends AbstractController<Project, ProjectDto, ProjectService, ProjectMapper> {
 
     public ProjectController(ProjectService service, ProjectMapper mapper) {

@@ -18,7 +18,7 @@ import static org.mapstruct.NullValuePropertyMappingStrategy.IGNORE;
         unmappedTargetPolicy = ReportingPolicy.IGNORE,
         componentModel = MappingConstants.ComponentModel.SPRING
 )
-public interface CommonMapper<E extends AbstractEntity, D> {
+public interface CommonMapper<E extends AbstractEntity, D extends Dto> {
     E toEntity(D dto);
 
     D toDto(E entity);

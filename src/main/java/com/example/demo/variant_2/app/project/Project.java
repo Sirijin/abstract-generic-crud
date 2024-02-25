@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import lombok.*;
+import lombok.Data;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.util.HashSet;

@@ -1,52 +1,72 @@
 package com.example.demo.variant_2.abstract_crud;
 
 import com.example.demo.variant_2.app.common.ErrorType;
-import com.example.demo.variant_2.app.common.SampleException;
+import com.example.demo.variant_2.app.common.response.BaseResponse;
 import com.google.common.collect.Lists;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 @RequiredArgsConstructor
-public abstract class AbstractService<E extends AbstractEntity, R extends CommonRepository<E>, M extends CommonMapper<E, ? extends Dto>>
-        implements CommonService<E> {
+@Transactional(readOnly = true)
+public abstract class AbstractService<E extends AbstractEntity, D extends Dto, R extends CommonRepository<E>, M extends CommonMapper<E, D>>
+        implements CommonService<E, D> {
 
     protected final R repository;
     protected final M mapper;
 
-    public Optional<E> save(E entity) {
-        return Optional.of(repository.save(entity));
-    }
-
+    @SneakyThrows
     @Override
-    public List<E> saveAll(List<E> entities) {
-        return Lists.newArrayList(repository.saveAll(entities));
+    public BaseResponse<D> getAll() {
+        List<D> items = StreamSupport.stream(repository.findAll().spliterator(), false).map(mapper::toDto).toList();
+        long total = repository.count();
+        return new BaseResponse<>(items, total);
     }
 
-    @Override
-    public Optional<E> update(E entity) {
-        return Optional.of(repository.save(entity));
-    }
-
+    @SneakyThrows
     @Override
     public Optional<E> get(Long id) {
         return repository.findById(id);
     }
 
-    @Override
-    public List<E> getAll() {
-        return Lists.newArrayList(repository.findAll());
+    @Transactional
+    @SneakyThrows
+    public Optional<E> save(E entity) {
+        return Optional.of(repository.save(entity));
     }
 
+    @Transactional
+    @SneakyThrows
+    @Override
+    public BaseResponse<D> saveAll(List<E> entities) {
+        List<D> items = StreamSupport.stream(repository.saveAll(entities).spliterator(), false).map(mapper::toDto).toList();
+        long totalSaved = entities.size();
+        return new BaseResponse<>(items, totalSaved);
+    }
+
+    @Transactional
+    @SneakyThrows
+    @Override
+    public Optional<E> update(E entity) {
+        return Optional.of(repository.save(entity));
+    }
+
+    @Transactional
+    @SneakyThrows
     @Override
     public Boolean deleteById(Long id) {
         E entity = get(id)
-                .orElseThrow(() -> new SampleException(String.format(ErrorType.ENTITY_NOT_FOUND.getDescription(), id)));
+                .orElseThrow(() -> new RuntimeException(String.format(ErrorType.ENTITY_NOT_FOUND.getDescription(), id)));
         repository.delete(entity);
         return repository.findById(entity.getId()).isEmpty();
     }
 
+    @Transactional
+    @SneakyThrows
     @Override
     public Boolean deleteAll() {
         repository.deleteAll();

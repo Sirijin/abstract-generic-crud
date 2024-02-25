@@ -1,19 +1,21 @@
 package com.example.demo.variant_2.abstract_crud;
 
+import com.example.demo.variant_2.app.common.response.BaseResponse;
+
 import java.util.List;
 import java.util.Optional;
 
-public interface CommonService<E extends AbstractEntity> {
+public interface CommonService<E extends AbstractEntity, D extends Dto> {
 
-    Optional<E> save(E entity);
-
-    List<E> saveAll(List<E> entities);
-
-    Optional<E> update(E entity);
+    BaseResponse<D> getAll();
 
     Optional<E> get(Long id);
 
-    List<E> getAll();
+    Optional<E> save(E entity);
+
+    BaseResponse<D> saveAll(List<E> entities);
+
+    Optional<E> update(E entity);
 
     Boolean deleteById(Long id);
 

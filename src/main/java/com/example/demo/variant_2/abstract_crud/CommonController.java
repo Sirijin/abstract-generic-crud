@@ -1,5 +1,6 @@
 package com.example.demo.variant_2.abstract_crud;
 
+import com.example.demo.variant_2.app.common.response.BaseResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,24 +8,24 @@ import java.util.List;
 
 public interface CommonController<D extends Dto> {
 
-    @PostMapping
-    ResponseEntity<D> save(@RequestBody D dto);
-
-    @PostMapping("/all")
-    ResponseEntity<List<D>> saveAll(@RequestBody List<D> dtos);
-
-    @PutMapping
-    ResponseEntity<D> update(@RequestBody D dto);
+    @GetMapping("/all")
+    ResponseEntity<BaseResponse<D>> getAll();
 
     @GetMapping
     ResponseEntity<D> get(@RequestParam Long id);
 
-    @GetMapping("/all")
-    ResponseEntity<List<D>> getAll();
+    @PostMapping
+    ResponseEntity<D> save(@RequestBody D dto);
+
+    @PostMapping("/all")
+    ResponseEntity<BaseResponse<D>> saveAll(@RequestBody List<D> dtos);
+
+    @PutMapping
+    ResponseEntity<D> update(@RequestBody D dto);
 
     @DeleteMapping
-    Boolean delete(@RequestParam Long id);
+    ResponseEntity<Boolean> delete(@RequestParam Long id);
 
     @DeleteMapping("/all")
-    Boolean deleteAll();
+    ResponseEntity<Boolean> deleteAll();
 }

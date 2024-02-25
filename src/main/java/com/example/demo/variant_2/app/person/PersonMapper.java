@@ -5,7 +5,6 @@ import com.example.demo.variant_2.app.project.Project;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
-import org.mapstruct.Qualifier;
 
 import java.util.Set;
 import java.util.stream.Collectors;

@@ -22,9 +22,9 @@ dependencies {
 	implementation 'org.liquibase:liquibase-core:4.26.0'
 	implementation "org.mapstruct:mapstruct:${mapstruct_version}"
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstruct_version}"
+	testImplementation 'com.h2database:h2:2.2.224'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 }
